@@ -1,3 +1,2 @@
 .venv/
-data/train_data/
-data/test_data/
+__pycache__/
