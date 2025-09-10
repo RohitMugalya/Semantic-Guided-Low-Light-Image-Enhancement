@@ -43,13 +43,19 @@ def run_basic_experiment():
 
 def create_single_comparison():
     """Create comparison for a single image"""
-    # Update this path to point to a specific low-light image
-    image_path = "data/test_data/DICM/1.jpg"  # Change this path
+    # Use glob to find the first available image in DICM directory
+    import glob
+    dicm_dir = "data/test_data/DICM"
+    image_files = glob.glob(os.path.join(dicm_dir, "*.jpg"))
     
-    if not os.path.exists(image_path):
-        print(f"Image not found: {image_path}")
-        print("Please update the image_path in this script")
+    if not image_files:
+        print(f"No .jpg images found in {dicm_dir}")
+        print("Please check the directory path and ensure it contains .jpg files")
         return
+    
+    # Use the first available image
+    image_path = image_files[0]
+    print(f"Using image: {image_path}")
     
     experiment = TraditionalExperiment(".", "traditional_results")
     

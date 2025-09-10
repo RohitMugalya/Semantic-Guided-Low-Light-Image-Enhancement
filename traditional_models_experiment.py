@@ -249,7 +249,7 @@ class TraditionalExperiment:
         
         return results    
     
-def create_comparison_grid(self, image_path, methods=None, save_path=None):
+    def create_comparison_grid(self, image_path, methods=None, save_path=None):
         """Create a comparison grid for a single image"""
         if methods is None:
             methods = list(self.enhancer.methods.keys())
