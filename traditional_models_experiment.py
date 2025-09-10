@@ -298,8 +298,9 @@ def create_comparison_grid(self, image_path, methods=None, save_path=None):
             plt.savefig(save_path, dpi=150, bbox_inches='tight')
             print(f"Comparison grid saved to: {save_path}")
         
-        plt.show()def
- main():
+        plt.show()
+
+def main():
     parser = argparse.ArgumentParser(description='Traditional Low-Light Enhancement Experiment')
     parser.add_argument('--input_dir', type=str, default='data/test_data/DICM', 
                        help='Input directory containing low-light images')
