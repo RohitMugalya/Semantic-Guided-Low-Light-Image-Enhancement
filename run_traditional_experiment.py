@@ -7,7 +7,14 @@ without command line arguments.
 """
 
 import os
-from traditional_models_experiment import TraditionalExperiment
+import sys
+
+try:
+    from traditional_models_experiment import TraditionalExperiment
+except ImportError as e:
+    print(f"Error importing TraditionalExperiment: {e}")
+    print("Please make sure traditional_models_experiment.py is in the same directory.")
+    sys.exit(1)
 
 def run_basic_experiment():
     """Run basic experiment with default settings"""

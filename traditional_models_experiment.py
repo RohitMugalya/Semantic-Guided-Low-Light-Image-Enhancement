@@ -90,9 +90,9 @@ class TraditionalEnhancer:
         gamma = -np.log2(mean_intensity)
         gamma = np.clip(gamma, 0.3, 2.5)  # Limit gamma range
         
-        return self.gamma_correction(image, gamma)    
-    d
-ef single_scale_retinex(self, image, sigma=15):
+        return self.gamma_correction(image, gamma)
+    
+    def single_scale_retinex(self, image, sigma=15):
         """Single Scale Retinex (SSR)"""
         image_float = image.astype(np.float32) + 1.0  # Add 1 to avoid log(0)
         
@@ -160,8 +160,8 @@ ef single_scale_retinex(self, image, sigma=15):
         enhanced = image.astype(np.float32) * exposure_factor
         enhanced = np.clip(enhanced, 0, 255).astype(np.uint8)
         return enhanced
-c
-lass TraditionalExperiment:
+
+class TraditionalExperiment:
     """Experiment runner for traditional enhancement methods"""
     
     def __init__(self, input_dir, output_dir):
@@ -196,9 +196,9 @@ lass TraditionalExperiment:
         enhanced = self.enhancer.methods[method_name](image)
         processing_time = time.time() - start_time
         
-        return enhanced, processing_time    
-    d
-ef run_experiment(self, methods=None):
+        return enhanced, processing_time
+    
+    def run_experiment(self, methods=None):
         """Run enhancement experiment on all images"""
         if methods is None:
             methods = list(self.enhancer.methods.keys())
