@@ -33,7 +33,6 @@ from torch.profiler import profile, record_function, ProfilerActivity
 # Import project modules
 from modeling import model
 from modeling.fpn import fpn, FocalLoss
-from option import args
 from utils import get_device, image_from_path, scale_image
 import Myloss
 
