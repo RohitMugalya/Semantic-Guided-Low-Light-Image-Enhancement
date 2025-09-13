@@ -29,7 +29,7 @@ def run_basic_experiment():
     experiment = TraditionalExperiment(input_dir, output_dir)
     
     # Run with selected methods (faster than all methods)
-    selected_methods = ['histogram_eq', 'clahe', 'gamma_correction', 'retinex_ssr', 'lime']
+    selected_methods = ['histogram_eq', 'clahe', 'gamma_correction', 'retinex_ssr', 'retinex_msr', 'lime', 'exposure_correction', 'adaptive_gamma']
     
     print("Running traditional enhancement experiment...")
     results = experiment.run_experiment(methods=selected_methods)
@@ -55,12 +55,13 @@ def create_single_comparison():
     
     # Use the first available image
     image_path = image_files[0]
+    image_path = "data/test_data/lowCUT/1.png"
     print(f"Using image: {image_path}")
     
     experiment = TraditionalExperiment(".", "traditional_results")
     
     # Create comparison grid
-    methods = ['histogram_eq', 'clahe', 'gamma_correction', 'retinex_ssr', 'lime']
+    methods = ['histogram_eq', 'clahe', 'gamma_correction', 'retinex_ssr', 'retinex_msr', 'lime', 'exposure_correction', 'adaptive_gamma']
     experiment.create_comparison_grid(
         image_path, 
         methods=methods,
